@@ -1,3 +1,12 @@
+import socket
+import os
+import sys
+import json
+import random
+import errno
+import math
+from multiprocessing import Process
+
 def process_start(s_sock):
 
 	s_sock.send(str.encode("*****ASA BOOKSTORE*****"))
@@ -79,3 +88,26 @@ def process_start(s_sock):
 			
 		s_sock.send(str.encode(str(sendtoCli)))
 	s_sock.close()
+
+if __name__ == '__main__':
+	s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+	s.bind(("",8888))
+	print("Waiting for client connection...")
+	s.listen(3)
+	try:
+		while True:
+			try:
+				s_sock, s_addr = s.accept()
+				print('Client from : ' + str(s_addr))
+				p = Process(target=process_start, args=(s_sock,))
+				p.start()
+
+			except socket.error:
+				print('SOCKET ERROR!')
+
+	except Exception as e:
+		print("INTERRUPT!")
+		print(e)
+		sys.exit(1)
+	finally:
+		s.close()

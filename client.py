@@ -4,7 +4,7 @@ import sys
 
 
 cSocket = socket.socket()
-host = '192.168.56.103'
+host = 'server ip'
 port = 8888
 
 print('Waiting')

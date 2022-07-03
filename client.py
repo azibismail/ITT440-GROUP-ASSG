@@ -16,8 +16,7 @@ except socket.error as e:
 Response = cSocket.recv(2048)
 print(Response.decode("utf-8"))
 
-print (	"Book List\n");
-
+print ("Book List\n");
 
 print("A. Bisik Ombak Gelora\n")
 print("B. Nasi Lemak Untuk Emak\n")
@@ -31,7 +30,7 @@ print("I. Jangan Baca Buku Ini\n")
 print("J. Cubaan 1..2..3!\n")
 
 while True:
-    opt = input('\nPlease input the Book code (Case sensitive). Type "EX" when you are done.\n')
+    opt = input('\nPlease input the book code (case sensitive). Type "EX" when you are done.\n')
 
     if opt == "A" or opt == "B" or opt == "C" or opt == "D" or opt == "E" or opt == "F" or opt == "G" or opt == "H" or opt == "I" or opt == "J":
         qty = input("Quantity: ")

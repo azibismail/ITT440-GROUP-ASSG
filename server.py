@@ -79,7 +79,7 @@ def process_start(s_sock):
 			print('ORDER RECEIVED!!!!')
 			
 		except:
-			print('Connection Terminated')
+			print('Connection Terminated' + str(s_addr))
 			sendtoCli = ('Connection Terminated')
 			break
 			
